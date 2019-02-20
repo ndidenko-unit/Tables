@@ -1,0 +1,252 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRestaurants (20190220192223)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "open_time" datetime, "close_time" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190220192223_create_restaurants.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190220192223"]]
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateTables (20190220192432)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "tables" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "number" integer, "restaurant_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190220192432_create_tables.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190220192432"]]
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateReservations (20190220192629)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" datetime, "end_time" datetime, "table_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190220192629_create_reservations.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190220192629"]]
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190220192652)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "phone" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190220192652_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190220192652"]]
+  ↳ bin/rails:9
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-02-20 19:27:57.071553"], ["updated_at", "2019-02-20 19:27:57.071553"]]
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Create (1.7ms)[0m  [1m[32mINSERT INTO "tables" ("number", "restaurant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["number", 1], ["restaurant_id", 1], ["created_at", "2019-02-20 19:28:40.552406"], ["updated_at", "2019-02-20 19:28:40.552406"]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (1.0ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "ololo"], ["created_at", "2019-02-20 19:29:22.228381"], ["updated_at", "2019-02-20 19:29:22.228381"]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTable Load (0.4ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" ORDER BY "tables"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."restaurant_id" = ? LIMIT ?[0m  [["restaurant_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ndidenko/.rvm/gems/ruby-2.5.1@global/bin/rake:23
+Migrating to AddIndexToReservation (20190220193645)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/ndidenko/.rvm/gems/ruby-2.5.1@global/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190220193645_add_index_to_reservation.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_table_id" ON "reservations" ("table_id")[0m
+  ↳ db/migrate/20190220193645_add_index_to_reservation.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  ↳ db/migrate/20190220193645_add_index_to_reservation.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_start_time" ON "reservations" ("start_time")[0m
+  ↳ db/migrate/20190220193645_add_index_to_reservation.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_end_time" ON "reservations" ("end_time")[0m
+  ↳ db/migrate/20190220193645_add_index_to_reservation.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190220193645"]]
+  ↳ /Users/ndidenko/.rvm/gems/ruby-2.5.1@global/bin/rake:23
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/ndidenko/.rvm/gems/ruby-2.5.1@global/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/ndidenko/.rvm/gems/ruby-2.5.1@global/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/ndidenko/.rvm/gems/ruby-2.5.1@global/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/ndidenko/.rvm/gems/ruby-2.5.1@global/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ndidenko/.rvm/gems/ruby-2.5.1@global/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "user1"], ["created_at", "2019-02-20 19:49:48.384355"], ["updated_at", "2019-02-20 19:49:48.384355"]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.7ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Create (5.2ms)[0m  [1m[32mINSERT INTO "reservations" ("start_time", "end_time", "table_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["start_time", "2019-02-20 20:18:01.449587"], ["end_time", "2019-02-20 20:23:01.449593"], ["table_id", 1], ["user_id", 1], ["created_at", "2019-02-20 20:13:01.452455"], ["updated_at", "2019-02-20 20:13:01.452455"]]
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-20 20:53:49.966766"], ["start_time", "2019-02-20 22:13:49.966800"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-20 20:53:49.966766"], ["end_time", "2019-02-20 22:13:49.966800"], ["LIMIT", 1]]
+  [1m[36mReservation Create (0.3ms)[0m  [1m[32mINSERT INTO "reservations" ("start_time", "end_time", "table_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["start_time", "2019-02-20 20:53:49.966766"], ["end_time", "2019-02-20 22:13:49.966800"], ["table_id", 1], ["user_id", 1], ["created_at", "2019-02-20 20:33:50.017537"], ["updated_at", "2019-02-20 20:33:50.017537"]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-20 20:53:57.908368"], ["start_time", "2019-02-20 22:13:57.908374"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-20 20:53:57.908368"], ["end_time", "2019-02-20 22:13:57.908374"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-20 20:59:10.844751"], ["start_time", "2019-02-20 22:14:10.844757"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-20 20:59:10.844751"], ["end_time", "2019-02-20 22:14:10.844757"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-20 22:14:25.628727"], ["start_time", "2019-02-20 22:31:05.628730"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-20 22:14:25.628727"], ["end_time", "2019-02-20 22:31:05.628730"], ["LIMIT", 1]]
+  [1m[36mReservation Create (0.2ms)[0m  [1m[32mINSERT INTO "reservations" ("start_time", "end_time", "table_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["start_time", "2019-02-20 22:14:25.628727"], ["end_time", "2019-02-20 22:31:05.628730"], ["table_id", 1], ["user_id", 1], ["created_at", "2019-02-20 20:34:25.632761"], ["updated_at", "2019-02-20 20:34:25.632761"]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-20 23:12:39.326018"], ["start_time", "2019-02-20 23:20:59.326052"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-20 23:12:39.326018"], ["end_time", "2019-02-20 23:20:59.326052"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-20 23:12:39.326018' AND end_time >= '2019-02-20 23:20:59.326052') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-20 23:12:39.326018' AND end_time >= '2019-02-20 23:20:59.326052') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Create (0.4ms)[0m  [1m[32mINSERT INTO "reservations" ("start_time", "end_time", "table_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["start_time", "2019-02-20 23:12:39.326018"], ["end_time", "2019-02-20 23:20:59.326052"], ["table_id", 1], ["user_id", 1], ["created_at", "2019-02-20 20:42:39.396688"], ["updated_at", "2019-02-20 20:42:39.396688"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-20 23:12:41.682736"], ["start_time", "2019-02-20 23:21:01.682741"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-20 23:12:41.682736"], ["end_time", "2019-02-20 23:21:01.682741"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-20 23:12:41.682736' AND end_time >= '2019-02-20 23:21:01.682741') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-20 23:12:41.682736' AND end_time >= '2019-02-20 23:21:01.682741') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-20 23:16:19.602646"], ["start_time", "2019-02-20 23:19:39.602650"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-20 23:16:19.602646"], ["end_time", "2019-02-20 23:19:39.602650"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-20 23:16:19.602646' AND end_time >= '2019-02-20 23:19:39.602650') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-20 23:16:19.602646' AND end_time >= '2019-02-20 23:19:39.602650') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-20 23:19:07.120540"], ["start_time", "2019-02-20 23:22:27.120583"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-20 23:19:07.120540"], ["end_time", "2019-02-20 23:22:27.120583"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-20 23:19:07.120540' AND end_time >= '2019-02-20 23:22:27.120583') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-20 23:19:07.120540' AND end_time >= '2019-02-20 23:22:27.120583') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-21 01:04:32.007811"], ["start_time", "2019-02-21 01:54:32.007836"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-21 01:04:32.007811"], ["end_time", "2019-02-21 01:54:32.007836"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 01:04:32.007811' AND end_time >= '2019-02-21 01:54:32.007836') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 01:04:32.007811' AND end_time >= '2019-02-21 01:54:32.007836') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-21 01:04:40.495926"], ["start_time", "2019-02-21 02:04:40.495944"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-21 01:04:40.495926"], ["end_time", "2019-02-21 02:04:40.495944"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 01:04:40.495926' AND end_time >= '2019-02-21 02:04:40.495944') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 01:04:40.495926' AND end_time >= '2019-02-21 02:04:40.495944') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-21 02:28:40.192433"], ["start_time", "2019-02-21 03:28:40.192451"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-21 02:28:40.192433"], ["end_time", "2019-02-21 03:28:40.192451"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 02:28:40.192433' AND end_time >= '2019-02-21 03:28:40.192451') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 02:28:40.192433' AND end_time >= '2019-02-21 03:28:40.192451') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-21 02:30:00.039836"], ["start_time", "2019-02-21 03:30:00.039872"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-21 02:30:00.039836"], ["end_time", "2019-02-21 03:30:00.039872"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 02:30:00.039836' AND end_time >= '2019-02-21 03:30:00.039872') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 02:30:00.039836' AND end_time >= '2019-02-21 03:30:00.039872') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Create (0.5ms)[0m  [1m[32mINSERT INTO "reservations" ("start_time", "end_time", "table_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["start_time", "2019-02-21 02:30:00.039836"], ["end_time", "2019-02-21 03:30:00.039872"], ["table_id", 1], ["user_id", 1], ["created_at", "2019-02-20 20:56:40.115146"], ["updated_at", "2019-02-20 20:56:40.115146"]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-21 03:53:43.399821"], ["start_time", "2019-02-21 04:53:44.399830"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-21 03:53:43.399821"], ["end_time", "2019-02-21 04:53:44.399830"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 03:53:43.399821' AND end_time >= '2019-02-21 04:53:44.399830') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 03:53:43.399821' AND end_time >= '2019-02-21 04:53:44.399830') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTable Load (0.2ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."start_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["start_time", "2019-02-21 03:53:50.047367"], ["start_time", "2019-02-21 04:53:50.047371"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND "reservations"."end_time" BETWEEN ? AND ? LIMIT ?[0m  [["table_id", 1], ["end_time", "2019-02-21 03:53:50.047367"], ["end_time", "2019-02-21 04:53:50.047371"], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 03:53:50.047367' AND end_time >= '2019-02-21 04:53:50.047371') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reservations" WHERE "reservations"."table_id" = ? AND (start_time <= '2019-02-21 03:53:50.047367' AND end_time >= '2019-02-21 04:53:50.047371') LIMIT ?[0m  [["table_id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Create (0.2ms)[0m  [1m[32mINSERT INTO "reservations" ("start_time", "end_time", "table_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["start_time", "2019-02-21 03:53:50.047367"], ["end_time", "2019-02-21 04:53:50.047371"], ["table_id", 1], ["user_id", 1], ["created_at", "2019-02-20 20:57:10.052516"], ["updated_at", "2019-02-20 20:57:10.052516"]]
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT  "reservations".* FROM "reservations" ORDER BY "reservations"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT  "reservations".* FROM "reservations" ORDER BY "reservations"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT  "reservations".* FROM "reservations" ORDER BY "reservations"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTable Load (0.1ms)[0m  [1m[34mSELECT  "tables".* FROM "tables" WHERE "tables"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.8ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
