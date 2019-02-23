@@ -26,34 +26,34 @@ class Reservation < ApplicationRecord
   private
 
   def validate_dates_in_past
-    errors.add(:start_time, :in_past) if start_time < Time.now
-    errors.add(:end_time, :in_past) if end_time < Time.now
+    errors.add(:start_time, 'in_past') if start_time < Time.now
+    errors.add(:end_time, 'in_past') if end_time < Time.now
   end
 
   def validate_dates_direction
-    errors.add(:start_time, :greater_than_end) if start_time > end_time
-    errors.add(:end_time, :less_than_start) if end_time < start_time
+    errors.add(:start_time, 'greater_than_end') if start_time > end_time
+    errors.add(:end_time, 'less_than_start') if end_time < start_time
   end
 
   def validate_dates_step
-    errors.add(:base, :step_not_30_min) if ((end_time.to_i - start_time.to_i) % 30*60).positive?
+    errors.add(:base, 'step_not_30_min') if ((end_time.to_i - start_time.to_i) % 30*60).positive?
   end
 
   def validate_restaurant_schedule
-    errors.add(:base, :outside_work_schedule) if start_time < table.restaurant.open_time
-    errors.add(:base, :outside_work_schedule) if end_time < table.restaurant.close_time
+    errors.add(:base, 'outside_work_schedule') if start_time < table.restaurant.open_time.to_time.utc
+    errors.add(:base, 'outside_work_schedule') if end_time > table.restaurant.close_time.to_time.utc
   end
 
   def validate_dates_overlaps
     start_overlapping = @table_reservation.where(start_time: start_time..end_time)
     end_overlapping = @table_reservation.where(end_time: start_time..end_time)
-    errors.add(:start_time, :overlap) if start_overlapping.any?
-    errors.add(:end_time, :overlap) if end_overlapping.any?
+    errors.add(:start_time, 'overlap') if start_overlapping.any?
+    errors.add(:end_time, 'overlap') if end_overlapping.any?
   end
 
   def validate_dates_around
     around = @table_reservation.where('start_time <= ? AND end_time >= ?', start_time, end_time)
-    errors.add(:start_time, :surrounded) if around.any?
-    errors.add(:end_time, :surrounded) if around.any?
+    errors.add(:start_time, 'surrounded') if around.any?
+    errors.add(:end_time, 'surrounded') if around.any?
   end
 end
